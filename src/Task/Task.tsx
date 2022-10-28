@@ -1,12 +1,14 @@
 import React from "react";
-interface TaskProps {
+interface TaskProps extends React.PropsWithChildren{
   task: string;
 }
 
-const Task: React.FC<TaskProps> = props => {
+const Task: React.FC<TaskProps> = (props) => {
   return (
     <div>
-      <div>{props.task}</div>
+      <div className="tasks">{props.task}</div>
     </div>
   );
 };
+
+export default Task;

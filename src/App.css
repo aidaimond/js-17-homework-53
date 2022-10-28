@@ -1,12 +1,35 @@
 .App {
+  font-size: 18px;
   text-align: center;
+  border: double thick darkblue;
+  margin: 15px 10px;
+  padding: 15px 0;
+  font-style: italic;
 }
 
-.person {
+.tasks {
   display: inline-block;
-  margin: 10px;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 2px #ccc;
-  width: 200px;
-  padding: 20px;
+  padding: 15px 10px;
 }
+
+.inputDiv {
+  margin: 10px;
+}
+
+.add{
+  padding: 10px 15px;
+  background-color: #dc90c1;
+  border: 2px solid #b00f7e;
+  border-radius: 4px;
+  margin: 0 15px;
+  cursor: grab;
+  font-weight: bold;
+}
+.add:active {
+  background-color: #b00f7e;
+}
+
+.inputTask {
+  padding: 10px;
+}
+

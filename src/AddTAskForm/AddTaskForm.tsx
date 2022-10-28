@@ -1,13 +1,17 @@
 import React from "react";
 
 interface AddTaskFormProps extends React.PropsWithChildren {
-  addTask: string;
+  addTask: React.MouseEventHandler;
+  onAddTask?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const Task: React.FC<AddTaskFormProps> = props => {
+const AddTaskForm: React.FC<AddTaskFormProps> = (props) => {
   return (
-    <form>
-      <input value={props.addTask} type="text"/>
-    </form>
+    <div className="inputDiv">
+      <input className="inputTask" placeholder="Add new task" onChange={props.onAddTask}/>
+      <button className="add" onClick={props.addTask}>Add</button>
+    </div>
   );
 };
+
+export default AddTaskForm;
