@@ -9,8 +9,9 @@ function App() {
     {task: 'Walk with dog', id: '234'},
     {task: 'Do homework', id: '345'},
   ]);
+
   const [current, setCurrent] = useState([
-    {task: 'Add new task', id: '86868686'},
+    {task: '', id: ''},
   ]);
 
   const currentTask = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +25,15 @@ function App() {
   }
 
   const addTask = () => {
-    tasks.push(current[0]);
+    const newTasks = [...tasks, current[0]];
+    setTasks(newTasks);
+  }
+
+  const deleteTask = (id: string) => {
+    const index = tasks.findIndex(t => t.id === id);
+    const tasksCopy = [...tasks];
+    tasksCopy.splice(index, 1);
+    setTasks(tasksCopy);
   }
 
   return (
@@ -37,7 +46,7 @@ function App() {
       <div>
         {tasks.map((task) => {
           return (
-            <Task key={task.id} task={task.task}/>
+            <Task key={task.id} task={task.task} delete={ () => deleteTask(task.id)}/>
           );
         })
         }
